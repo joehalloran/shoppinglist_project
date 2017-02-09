@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Create Item{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-xs-12">
+            <h1>Create new list</h1>
+        </div>
+	<div class="col-sm-6">
+        <h1>{{ mylist.name }}</h1>
+        <form action="" method="post">
+			{% csrf_token %}
+    		    {% for field in form %}
+                <div class="form-group">
+                    {% if field.errors %}
+                    <p class="has-error alert alert-danger">
+                        <span class="help-block">
+                            {% for error in field.errors %}{{ error }}{% endfor %}
+                        </span>
+                    </p>
+                    {% endif %}
+                    {{ field }}
+                    {% if field.help_text %}
+                        <span class="help-block" style="display: inline;"><small>{{ field.help_text|safe }}
+                        {# Using |safe to allow links in help text, specifically for terms_accepted #}
+                        </small></span>
+                    {% endif %}
+                </div>
+              
+    			{% endfor %}
+            
+			<button type="submit" class="btn btn-primary">Next</button>
+		</form>
+	</div>
+</div>
+{% endblock %}

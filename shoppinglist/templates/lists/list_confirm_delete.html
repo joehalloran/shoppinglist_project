@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Unsubscribe confirm{% endblock %}
+
+{% block content %}
+<div class="row">
+	<div class="col-xs-12">
+		<h1>Delete list?</h1>
+		<h2>Are you sure you want to delete "{{ object.name }}"?</h2>
+	    <p>This includes deleting all these items:</p>
+	    <ul>
+		    {% for item in items %}
+		    	<li>{{item.name}}</li>
+		    {% endfor %}
+	    </ul>
+		<form action="" method="post">{% csrf_token %}
+		    <button type="submit" class="btn btn-danger">Delete forever</button>
+		    <a class="btn btn-primary" href="{% url 'lists:edit' object.id %}" role="button">Cancel</a>
+		</form>
+	</div>
+</div>
+{% endblock %}
