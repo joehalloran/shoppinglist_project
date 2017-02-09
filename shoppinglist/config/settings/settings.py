@@ -19,13 +19,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
-GOOGLE_OAUTH2_CLIENT_ID = "1094549698139-bdcfhm888dmctdkbtfmrnodaqttpbsjs.apps.googleusercontent.com"
-GOOGLE_OAUTH2_CLIENT_SECRET = "4QVXrx35gxly_nHTRVzwF3CE"
+GOOGLE_OAUTH2_CLIENT_ID = os.environ['GOOGLE_OAUTH2_CLIENT_ID']
+GOOGLE_OAUTH2_CLIENT_SECRET = os.environ['GOOGLE_OAUTH2_CLIENT_SECRET']
 GOOGLE_OAUTH2_SCOPES = (
     'email', 'profile')
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'xmze4egryc*&g@s6y870$hlbd+x&1s(l4+#cv+f=3977%cxn2e'
+SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
