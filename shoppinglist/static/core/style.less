@@ -1,0 +1,130 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#page-title {
+	margin-top: 50px;
+}
+
+.alert {
+	margin-top: 20px;
+}
+
+
+ul#mylists {
+	padding-left: 0;
+    list-style-type: none;
+
+	li {
+		padding: 15px;
+		margin-bottom: 20px;
+		font-size: 22px;
+		border-radius: 10px;
+	}
+
+	.bg-info:hover {
+		color: #fff;
+	    background-color: #337ab7;
+	}
+
+	.bg-success {
+
+		a {
+			color: #333;
+
+			&:hover {
+				color: #333;
+			}
+		}
+
+		&:hover {
+			color: #fff;
+		    background-color: #91c37d;
+
+		    a {
+		    	color: #fff;
+
+		    	&:hover {
+		    		color: #fff;
+		    	}
+		    }
+		}
+
+	}
+
+}
+
+.bg-success {
+    background-color: #bcefa8;
+}
+
+.btn-create {
+	color: #333;
+    background-color: #bcefa8;
+    border-color: #7dbd63;
+
+    &:hover {
+    	color: #fff;
+	    background-color: #91c37d;
+	    border-color: #7dbd63;
+    }
+}
+
+#item-edit-form {
+
+	margin-top: 50px;
+
+	.form-inline {
+		margin-bottom: 10px;
+
+		.form-control {
+			font-size: 18px;
+		    display: inline-block;
+		    vertical-align: middle;
+		    width: 60%;
+
+		    @media (min-width: 768px) {
+		    	width: auto;
+		    }
+
+		    &:hover {
+		    	border: 1px solid #333;
+		    }
+		}
+
+		input[type=checkbox] {
+			display: none;
+		}
+
+		.form-inactive {
+			border: none;
+			box-shadow: none;
+			color: #333;
+		}
+
+		.form-group {
+			.form-inactive {
+				padding-left: 0;
+			}
+		}
+
+		.form-title {
+			font-size: 36px;
+			padding-left: 12px;
+			height: 60px;
+			margin-bottom: 10px;
+		}
+	}
+
+	.delete-item-button {
+		display: none;
+		margin-right: 5px;
+	}
+
+	#add-item-button {
+		margin-left: 20px;
+	}
+} 
