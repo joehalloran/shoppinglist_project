@@ -1,6 +1,7 @@
 appdirs==1.4.0
 Django==1.10.5
 google-api-python-client==1.6.2
+gunicorn==19.6.0
 httplib2==0.10.3
 jsonpickle==0.9.4
 MySQL-python==1.2.5
