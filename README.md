@@ -128,10 +128,6 @@ gsutil rsync -R static/ gs://<your-gcs-bucket>/static
 ### CORS configuration:
 Bootstrap font face files, served with static files, were initially blocked by CORS. To resolve a custom CORS config was applied to the static files storage bucket. Note the [cors-config.json](https://github.com/joehalloran/shoppinglist_project/blob/master/shoppinglist/cors-config.json) in this repository.
 
-Notes:
-* https://cloud.google.com/storage/docs/cross-origin
-* https://cloud.google.com/storage/docs/gsutil/commands/cors
-
 To get current settings:
 ```
 gsutil cors get gs://<bucket-name>
@@ -140,3 +136,7 @@ To set:
 ```
 gsutil cors set cors-config.json gs://<bucket-name>
 ```
+
+Notes:
+* https://cloud.google.com/storage/docs/cross-origin
+* https://cloud.google.com/storage/docs/gsutil/commands/cors
