@@ -34,12 +34,37 @@ I want to practice the discipline of TDD. I like the Test -> Code -> Test cycle.
 4. **Complex forms:**
 (see next section)
 
+## Project structure:
+
+### config:
+Django settings files and base urls.py
+
+### core:
+Contains:
+* Project wide static files (css, js, etc...)
+* Abstract models for other apps.
+* Logout view
+
+### lists:
+The workhorse app. Handles list and item functionality.
+* forms.py: Meta data for create list form
+* models.py: Lists and (list) Items
+* Unit tests
+* urls.py: URL routing.
+* **views.py:** This is the most significant file in the project. Contains most server side functionality.
+
+### Static files:
+Destination for static files. See Deployment Notes below.
+
+### templates:
+Contains HTML
+
 ## Challenges faced in this project
 
 ### The edit list form:
 The shopping list edit for required using [Django Formsets](https://docs.djangoproject.com/en/1.10/topics/forms/formsets/) to create a single form that allows users to edit the list items. This resulted in a [complex function](https://github.com/joehalloran/shoppinglist_project/blob/master/shoppinglist/lists/views.py#L96) that could be refactored. It also required creating the appropriate [javascript](https://github.com/joehalloran/shoppinglist_project/blob/master/shoppinglist/lists/static/lists/lists.js) to:
   * Switch between edit / view mode.
-  * Add infinite items to the list. Special attention had to be paid to the Django management form data.
+  * Add infinite items to the list. Special attention had to be paid to the Django [ManagementForm](https://docs.djangoproject.com/en/1.10/topics/forms/formsets/#understanding-the-managementform) data.
 
 ### oAuth:
 I had not done this before and was keen to implement this myself instead of using a third party Django app (e.g. [Django Social Auth](https://github.com/omab/django-social-auth)). After some tinkering and experimenting with ways to add [shopping lists to their ‘owners’](https://github.com/joehalloran/shoppinglist_project/blob/master/shoppinglist/lists/views.py#L60), I pleased to say this feature is working.
