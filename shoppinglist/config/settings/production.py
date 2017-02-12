@@ -2,7 +2,8 @@ from .base import *
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['*', '.shopping-list-auth.appspot.com', 'localhost', '127.0.0.1']
+# TODO - security workout to remove '*', seems to be necessary on GAE
+ALLOWED_HOSTS = ['*', '.appspot.com', 'localhost', '127.0.0.1']
 
 DATABASES = {
     'default': {

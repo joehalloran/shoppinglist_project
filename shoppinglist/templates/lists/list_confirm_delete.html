@@ -17,7 +17,12 @@
 		{% endif %}
 		<form action="" method="post">{% csrf_token %}
 		    <button type="submit" class="btn btn-danger">Delete forever</button>
-		    <a class="btn btn-primary" href="{% url 'lists:edit' object.id %}" role="button">Cancel</a>
+		    {# If cancel return to previous page - mylists or edit #}
+		    {% if request.GET.redirect == 'mylists' %}
+		    	<a class="btn btn-primary" href="{% url 'lists:mylists' %}" role="button">Cancel</a>
+		    {% else %}
+		    	<a class="btn btn-primary" href="{% url 'lists:edit' object.id %}" role="button">Cancel</a>
+		    {% endif %}
 		</form>
 	</div>
 </div>
