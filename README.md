@@ -39,10 +39,10 @@ I want to practice the discipline of TDD. I like the Test -> Code -> Test cycle.
 ### [shoppinglist.lists](https://github.com/joehalloran/shoppinglist_project/tree/master/shoppinglist/lists):
 The workhorse of the entire application. It handles all list and item functionality.
 * **views.py:** _This is the [most significant file](https://github.com/joehalloran/shoppinglist_project/blob/master/shoppinglist/lists/views.py) in the project. It contains most server side functionality._
-* static.js: Custom js to create friendly UI.
-* forms.py: Meta data for 'create list' form
-* models.py: Lists and Items
-* Unit tests
+* static/lists/lists.js: Custom js to create friendly UI.
+* forms.py: Meta data for 'create list' form.
+* models.py: Lists and Items.
+* Various unit tests.
 * urls.py: URL routing.
 
 
@@ -70,7 +70,7 @@ The shopping list edit form required using [Django Formsets](https://docs.django
   * Add infinite items to the list. Special attention had to be paid to the Django [ManagementForm](https://docs.djangoproject.com/en/1.10/topics/forms/formsets/#understanding-the-managementform) data.
 
 ### oAuth:
-I had not done this before and was keen to implement this myself instead of using a third party Django app (e.g. [Django Social Auth](https://github.com/omab/django-social-auth)). After some tinkering and experimenting with ways to add [shopping lists to their ‘owners’](https://github.com/joehalloran/shoppinglist_project/blob/master/shoppinglist/lists/views.py#L60), I pleased to say this feature is working.
+I had not done this before and was keen to implement this myself instead of using a third party Django app (e.g. [Django Social Auth](https://github.com/omab/django-social-auth)). After some tinkering and experimenting with [oauth2client](https://github.com/google/oauth2client) and ways to add [shopping lists to their ‘owners’](https://github.com/joehalloran/shoppinglist_project/blob/master/shoppinglist/lists/views.py#L60), I pleased to say this feature is working.
 
 *(A bit presumptuous)*
 I fear I have found some errors in [Google’s documentation](https://developers.google.com/api-client-library/python/guide/django). For example, the [FlowField](https://developers.google.com/api-client-library/python/guide/django#flows) method no longer exists in [oauth2client package](https://github.com/google/oauth2client). However, I defer to the wisdom of Google and expect I am probably wrong.
@@ -97,7 +97,7 @@ Config.settings.dev requires [cloud sql proxy](https://cloud.google.com/sql/docs
 This may require stopping mysql service on development machine (if already listening on 127.0.0.1:3306).
 
 ```
-sudo /etc/init.d/mysql start
+sudo /etc/init.d/mysql stop
 ```
 
 And to connect cloud_sql_server:
@@ -127,9 +127,10 @@ gsutil rsync -R static/ gs://<your-gcs-bucket>/static
 ```
 ### CORS configuration:
 Bootstrap font face files, served with static files, were initially blocked by CORS. To resolve a custom CORS config was applied to the static files storage bucket. Note the [cors-config.json](https://github.com/joehalloran/shoppinglist_project/blob/master/shoppinglist/cors-config.json) in this repository.
-https://cloud.google.com/storage/docs/cross-origin
 
-https://cloud.google.com/storage/docs/gsutil/commands/cors
+Notes:
+* https://cloud.google.com/storage/docs/cross-origin
+* https://cloud.google.com/storage/docs/gsutil/commands/cors
 
 To get current settings:
 ```
