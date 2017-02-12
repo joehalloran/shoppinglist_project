@@ -36,27 +36,27 @@ I want to practice the discipline of TDD. I like the Test -> Code -> Test cycle.
 
 ## Project structure:
 
-### config:
-Django settings files and base urls.py
-
-### core:
-Contains:
-* Project wide static files (css, js, etc...)
-* Abstract models for other apps.
-* Logout view
-
-### lists:
+### shoppinglist.lists:
 The workhorse app. Handles list and item functionality.
 * forms.py: Meta data for create list form
 * models.py: Lists and (list) Items
 * Unit tests
 * urls.py: URL routing.
-* **views.py:** This is the most significant file in the project. Contains most server side functionality.
+* **views.py:** _This is the most significant file in the project. Contains most server side functionality._
 
-### Static files:
-Destination for static files. See Deployment Notes below.
+### shoppinglist.config:
+Django settings files and base urls.py
 
-### templates:
+### shoppinglist.core:
+Contains:
+* Project wide static files (css, js, etc...)
+* Abstract models for other apps.
+* Logout view
+
+### shoppinglist.static:
+Destination for Django collectstatic. See Deployment Notes below.
+
+### shoppinglist.templates:
 Contains HTML
 
 ## Challenges faced in this project
