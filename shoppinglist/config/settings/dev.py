@@ -18,5 +18,3 @@ if os.getenv('GAE_INSTANCE'):
     pass
 else:
     DATABASES['default']['HOST'] = '127.0.0.1'
-
-STATIC_URL = '/http://storage.googleapis.com/shopping-list-auth-static/static/'
